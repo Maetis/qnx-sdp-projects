@@ -4,6 +4,7 @@ This repository contains some personal projects created with QNX SDP 8.0 and som
 
 ## Documentation
 * [Install QNX SDP 8.0 on WSL](./docs/wsl-install.md)
+* [QNX SDP 8.0 Demos and Tutorials Packages](./docs/sdp-tutorials-packages.md)
 
 ## Projects
 
