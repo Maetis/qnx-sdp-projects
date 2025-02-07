@@ -7,7 +7,7 @@ This repository contains some personal projects created with QNX SDP 8.0 and som
 * [QNX SDP 8.0 Demos and Tutorials Packages](./docs/sdp-tutorials-packages.md)
 
 ## Projects
-
+* [CamJam EduKit 1 Projects](./projects/camjam_edukit1/README.md)
 
 
 ## Resources
