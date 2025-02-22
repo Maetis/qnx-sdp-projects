@@ -5,4 +5,5 @@ This repository contains the code and resources based on the [CamJam EduKit 1](h
 Each project has been realized in Python and C.
 
 Projects:
-* Worksheet 2 - LEDs ([Python](./worksheet2/python/), [C](./worksheet2/C/))  
+* Worksheet 2 - LEDs ([Python](./worksheet2/python/), [C](./worksheet2/C/))
+* Worksheet 3 - Blinking LEDs ([Python](./worksheet3/python/), [C](./worksheet3/C/)
