@@ -1,2 +1,4 @@
-# QNX C output files
-nto
+**/nto/aarch64/o-le/*
+**/nto/arm/o-le-v7/*
+**/nto/x86_64/o/*
+!**/nto/**/Makefile
