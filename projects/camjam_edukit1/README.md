@@ -6,4 +6,9 @@ Each project has been realized in Python and C.
 
 Projects:
 * Worksheet 2 - LEDs ([Python](./worksheet2/python/), [C](./worksheet2/C/))
+<<<<<<< HEAD
+* Worksheet 3 - Blinking LEDs ([Python](./worksheet3/python/), [C](./worksheet3/C/)
+* Worksheet 4 - User Input ([Python](./worksheet4/python/), [C](./worksheet4/C/)
+=======
 * Worksheet 3 - Blinking LEDs ([Python](./worksheet3/python/), [C](./worksheet3/C/))
+>>>>>>> origin/main
