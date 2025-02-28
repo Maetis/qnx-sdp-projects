@@ -12,4 +12,4 @@ To make the code work on QNX 8.0, we need to use the ```rpi_gpio``` library prov
 
 ## C
 
-As there is no library provided in the Raspberry Pi 4 QNX 8.0 Quick Start Target Image to interact with the GPIO, we will interact with it through ```/dev/gpio```.
+Since the worksheet 3 we will use directly the GPIO registers.
