@@ -1,8 +1,8 @@
-# Worksheet 4 - User Input
+# Worksheet 5 - Button
 
-The objective is to make blinking one of the three LEDs (red, yellow and green) based on user input.
+The objective is to capture the button press and print a message.
 
-Download the instructions [here](https://github.com/CamJam-EduKit/EduKit1/raw/master/CamJam%20EduKit%201%20-%20GPIO%20Zero/CamJam%20EduKit%201%20%20-%20Worksheet%204%20(GPIO%20Zero)%20-%20User%20Input.pdf).
+Download the instructions [here](https://github.com/CamJam-EduKit/EduKit1/raw/master/CamJam%20EduKit%201%20-%20GPIO%20Zero/CamJam%20EduKit%201%20%20-%20Worksheet%205%20(GPIO%20Zero)%20-%20Button.pdf).
 
 ## Python
 
