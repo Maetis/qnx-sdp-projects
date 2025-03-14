@@ -33,7 +33,7 @@ QNX_PASSWORD="FILL_ME_IN"
 cd $HOME
 
 ./qnx/qnxsoftwarecenter/qnxsoftwarecenter_clt \
-    --addLicenseKey $LICENSE_KEY
+    -addLicenseKey $LICENSE_KEY
 
 ./qnx/qnxsoftwarecenter/qnxsoftwarecenter_clt \
     -myqnx.user $QNX_USER -myqnx.password $QNX_PASSWORD \
