@@ -19,26 +19,26 @@
 #define GPLEV1 14
 #define GPIO_PUP_PDN_CNTRL_REG1 58
 
-void dot(const volatile uint32_t *gpio_base) {
+void dot(volatile uint32_t *gpio_base) {
     gpio_base[GPSET0] = 1 << 11;
-    delay(100000);
+    delay(100);
     gpio_base[GPCLR0] = 1 << 11;
-    delay(100000);
+    delay(100);
 }
 
-void dash(const volatile uint32_t *gpio_base) {
+void dash(volatile uint32_t *gpio_base) {
     gpio_base[GPSET0] = 1 << 11;
-    delay(300000);
+    delay(300);
     gpio_base[GPCLR0] = 1 << 11;
-    delay(100000);
+    delay(100);
 }
 
 void letter_space() {
-    delay(200000);
+    delay(200);
 }
 
 void word_space() {
-    delay(600000);
+    delay(600);
 }
 
 void morse_s(volatile uint32_t *gpio_base) {
