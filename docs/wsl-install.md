@@ -6,10 +6,11 @@ Typically, QNX SDP 8.0 can be installed on Windows or Linux, but it is also poss
 * [You need a license for QNX SDP 8.0](https://www.qnx.com/products/everywhere/)
 * You need one of the following Linux distributions installed on WSL
 
-| Linux distribution | Tested with QNX SDP 8.0 |
-| ------------------ |:-----------------------:|
-| Ubuntu-22.04       | :white_check_mark:      |
-| Ubuntu-24.04       | :white_check_mark:      |
+| Linux distribution  | Tested with QNX SDP 8.0 |
+| ------------------- |:-----------------------:|
+| Ubuntu-22.04        | :white_check_mark:      |
+| Ubuntu-24.04        | :white_check_mark:      |
+| openSuse Tumbleweed | :white_check_mark:      |                     |
 
 ## Step 1: Download and decompress the QNX Software Center
 Unfortunately, we can't download the **QNX Software Center** directly with `cURL` because authentication is required. You will need to use an internet browser to download it ([link](https://www.qnx.com/download/group.html?programid=29178)). Download the variant for Linux.
@@ -21,6 +22,11 @@ cd $HOME
 cp /mnt/c/Users/<username>/Downloads/qnx-setup-<version>-linux.run .
 mkdir qnx
 ./qnx-setup-<version>-linux.run --tar xvf -C qnx
+```
+In the case of openSUSE Tumbleweed, you will need to install some prerequisite packages. You can do this by running the following command:
+
+```bash
+sudo zypper install tar gzip
 ```
 
 ## Step 2: Install QNX SDP 8.0
@@ -53,6 +59,8 @@ source $HOME/.bashrc
 ## Step 3: Install QEMU and other dependencies
 If you don't have a device compatible with QNX 8.0 (like a RaspBerry Pi 4), you probably need to run QNX on a virtual machine. So, some dependencies will need to be installed on your Linux distribution.
 
+### Ubuntu
+
 ```bash
 sudo apt update
 sudo apt install -y qemu-system-x86 \
@@ -60,6 +68,30 @@ sudo apt install -y qemu-system-x86 \
                     net-tools \
                     libvirt-clients \ 
                     libvirt-daemon-system
+```
+
+### openSUSE Tumbleweed
+
+```bash
+sudo zypper install bridge-utils \
+                    net-tools \ 
+                    binutils \ 
+                    net-tools-deprecated \
+                    which \
+                    git \ 
+                    libvirt
+```
+
+With openSUSE Tumbleweed, you will need to perform some additional steps in order to configure the bridge networking.
+
+```bash
+sudo chmod 4755 /usr/libexec/qemu-bridge-helper
+
+# Run dnsmaq before running this command, if you have a port conflict run it.
+sudo sh -c 'echo "port=0" >> /etc/dnsmasq.conf'
+
+# Then run this tool from QNX SDP to configure the bridge networking.
+./qnx/qnx800/host/common/mkqnximage/qemu/check-net
 ```
 
 ## Step 4: Validate your installation
@@ -79,6 +111,7 @@ Finally we will install and configure the [QNX Toolkit extension for Visual Stud
 
 ```bash
 code --install-extension qnx.qnx-vscode
+code --install-extension ms-vscode.cpptools
 
 code .
 ```
