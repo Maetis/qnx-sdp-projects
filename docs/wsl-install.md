@@ -10,7 +10,7 @@ Typically, QNX SDP 8.0 can be installed on Windows or Linux, but it is also poss
 | ------------------- |:-----------------------:|
 | Ubuntu-22.04        | :white_check_mark:      |
 | Ubuntu-24.04        | :white_check_mark:      |
-| openSuse Tumbleweed | :white_check_mark:      |                     |
+| openSUSE Tumbleweed | :white_check_mark:      |                     |
 
 ## Step 1: Download and decompress the QNX Software Center
 Unfortunately, we can't download the **QNX Software Center** directly with `cURL` because authentication is required. You will need to use an internet browser to download it ([link](https://www.qnx.com/download/group.html?programid=29178)). Download the variant for Linux.
