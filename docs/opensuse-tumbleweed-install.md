@@ -1,25 +1,17 @@
-# Install QNX SDP 8.0 on WSL
-
-Typically, QNX SDP 8.0 can be installed on Windows or Linux, but it is also possible to install it on WSL.
+# Install QNX SDP 8.0 on openSUSE Tumbleweed
 
 ## Prerequisites
-* [You need a license for QNX SDP 8.0](https://www.qnx.com/products/everywhere/)
-* You need one of the following Linux distributions installed on WSL
+* [You need a license for QNX SDP 8.0](https://devblog.qnx.com/how-to-get-a-free-qnx-license/)
 
-| Linux distribution  | Tested with QNX SDP 8.0 |
-| ------------------- |:-----------------------:|
-| Ubuntu-22.04        | :white_check_mark:      |
-| Ubuntu-24.04        | :white_check_mark:      |
 
 ## Step 1: Download and decompress the QNX Software Center
 Unfortunately, we can't download the **QNX Software Center** directly with `cURL` because authentication is required. You will need to use an internet browser to download it ([link](https://www.qnx.com/download/group.html?programid=29178)). Download the variant for Linux.
 
 ```bash
-# Assuming you downloaded the QNX Software Center to your 'Downloads' folder on Windows
-
 cd $HOME
-cp /mnt/c/Users/<username>/Downloads/qnx-setup-<version>-linux.run .
+cp <your-download-folder>/qnx-setup-<version>-linux.run .
 mkdir qnx
+chmod +x qnx-setup-<version>-linux.run
 ./qnx-setup-<version>-linux.run --tar xvf -C qnx
 ```
 
@@ -53,15 +45,33 @@ source $HOME/.bashrc
 ## Step 3: Install QEMU and other dependencies
 If you don't have a device compatible with QNX 8.0 (like a RaspBerry Pi 4), you probably need to run QNX on a virtual machine. So, some dependencies will need to be installed on your Linux distribution.
 
-### Ubuntu
+```bash
+sudo zypper install bridge-utils net-tools binutils net-tools-deprecated which git libvirt 
+```
+
+With openSUSE Tumbleweed, you will need to perform some additional steps in order to configure the bridge networking.
 
 ```bash
-sudo apt update
-sudo apt install -y qemu-system-x86 \
-                    bridge-utils \
-                    net-tools \
-                    libvirt-clients \ 
-                    libvirt-daemon-system
+sudo chmod 4755 /usr/libexec/qemu-bridge-helper
+
+# Run dnsmaq before running this command, if you have a port conflict run it.
+sudo sh -c 'echo "port=0" >> /etc/dnsmasq.conf'
+
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+
+sudo systemctl start dnsmasq.service
+sudo systemctl enable dnsmasq.service
+
+sudo virsh net-autostart default
+sudo virsh net-start default
+
+# Add /sbin to your PATH environment variable.
+echo "export PATH=$PATH:/sbin" >> .bashrc
+source .bashrc
+
+# Then run this tool from QNX SDP to configure the bridge networking.
+./qnx/qnx800/host/common/mkqnximage/qemu/check-net
 ```
 
 ## Step 4: Validate your installation
@@ -85,5 +95,3 @@ code --install-extension ms-vscode.cpptools
 
 code .
 ```
-
-In VS Code you will need to configure the ```qnx.sdpPath``` setting in order to provide the path to QNX SDP.
