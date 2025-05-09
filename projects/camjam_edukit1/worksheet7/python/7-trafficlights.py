@@ -31,7 +31,6 @@ def startgreen():
     GPIO.output(amber, GPIO.LOW)
     GPIO.output(red, GPIO.LOW)
     GPIO.output(buzzer, GPIO.LOW)
-    time.sleep(5)
 
 # Turn the green off and the amber on for 3 seconds
 def steadyamber():
@@ -54,6 +53,7 @@ def startwalking():
         time.sleep(0.5)
         GPIO.output(buzzer, GPIO.LOW)
         time.sleep(0.5)
+    time.sleep(0.5)
 
 # Turn the buzzer off and wait for 2 seconds
 def dontwalk():
