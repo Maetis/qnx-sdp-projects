@@ -6,6 +6,8 @@ Each project has been realized in Python and C.
 
 Projects:
 * Worksheet 2 - LEDs ([Python](./worksheet2/python/), [C](./worksheet2/C/))
-* Worksheet 3 - Blinking LEDs ([Python](./worksheet3/python/), [C](./worksheet3/C/)
-* Worksheet 4 - User Input ([Python](./worksheet4/python/), [C](./worksheet4/C/)
-* Worksheet 5 - Button ([Python](./worksheet5/python/), [C](./worksheet5/C/)
+* Worksheet 3 - Blinking LEDs ([Python](./worksheet3/python/), [C](./worksheet3/C/))
+* Worksheet 4 - User Input ([Python](./worksheet4/python/), [C](./worksheet4/C/))
+* Worksheet 5 - Button ([Python](./worksheet5/python/), [C](./worksheet5/C/))
+* Worksheet 6 - Buzzer ([Python](./worksheet6/python/), [C](./worksheet6/C/))
+* Worksheet 7 - Traffic Lights ([Python](./worksheet7/python/), [C](./worksheet7/C/))
